@@ -1,4 +1,9 @@
-import { Component, inject } from "@angular/core";
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  inject,
+} from "@angular/core";
 import { Router, RouterOutlet } from "@angular/router";
 import { TicketService } from "./shared/providers/ticket.service";
 import { AsyncPipe, CurrencyPipe } from "@angular/common";
@@ -10,9 +15,11 @@ import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
   standalone: true,
   templateUrl: "./app.component.html",
   styleUrl: "./app.component.scss",
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
   router = inject(Router);
+  cdr = inject(ChangeDetectorRef);
 
   #ticketService = inject(TicketService);
 
@@ -22,11 +29,15 @@ export class AppComponent {
   constructor() {
     this.#ticketService.quantity
       .pipe(takeUntilDestroyed())
-      .subscribe((quantity) => (this.quantity = quantity));
+      .subscribe((quantity) => {
+        this.quantity = quantity;
+        this.cdr.markForCheck();
+      });
 
-    this.#ticketService.price
-      .pipe(takeUntilDestroyed())
-      .subscribe((price) => (this.price = price));
+    this.#ticketService.price.pipe(takeUntilDestroyed()).subscribe((price) => {
+      this.price = price;
+      this.cdr.markForCheck();
+    });
   }
 
   goToCart(): void {
