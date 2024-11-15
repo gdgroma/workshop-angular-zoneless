@@ -1,13 +1,21 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { Router, RouterOutlet} from '@angular/router';
+import { TicketService } from './shared/providers/ticket.service';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-root',
+  imports: [RouterOutlet, AsyncPipe],
   standalone: true,
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'workshop-catania';
+  router = inject(Router);
+  quantity$ = inject(TicketService).quantity;
+
+  goToCart(): void {
+    console.log('Here?');
+    this.router.navigate(['/cart']);
+  }
 }

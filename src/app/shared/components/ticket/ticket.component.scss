@@ -55,21 +55,9 @@
     left: 16px;
     right: 16px;
 
-    width: 300px;
+    width: 268px;
     height: 16px;
 
     background-color: var(--red-500);
-  }
-
-  button {
-    border: none;
-    padding: 16px;
-
-    text-transform: uppercase;
-    color: var(--white);
-    background-color: var(--red-500);
-
-    box-shadow: var(--shadow);
-    cursor: pointer;
   }
 }

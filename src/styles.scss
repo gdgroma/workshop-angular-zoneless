@@ -14,10 +14,23 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 
   font-family: 'Roboto', sans-serif;
 }
 
 body {
   background-color: var(--grey-200);
+}
+
+button {
+  border: none;
+  padding: 16px;
+
+  text-transform: uppercase;
+  color: var(--white);
+  background-color: var(--red-500);
+
+  box-shadow: var(--shadow);
+  cursor: pointer;
 }

@@ -4,7 +4,7 @@
 
   <div class="tickets__container">
     @for (ticket of tickets; track ticket.id) {
-    <app-ticket [ticket]="ticket" />
+    <app-ticket [ticket]="ticket" (addTicket)="addTicket($event)"/>
     }
   </div>
 </section>

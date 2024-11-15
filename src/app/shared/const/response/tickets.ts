@@ -10,49 +10,4 @@ export const TICKETS: Ticket[] = [
     location: 'DevFest Catania',
     title: 'Angular Zoneless Workshop',
   },
-  {
-    id: 1,
-    about: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam porro suscipit cupiditate,
-        quam commodi omnis fuga quo perspiciatis ducimus illo repudiandae voluptatibus ea incidunt.
-        Fugiat voluptatum ratione voluptatem velit tenetur.`,
-    date: new Date(),
-    location: 'DevFest Catania',
-    title: 'Angular Zoneless Workshop',
-  },
-  {
-    id: 2,
-    about: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam porro suscipit cupiditate,
-        quam commodi omnis fuga quo perspiciatis ducimus illo repudiandae voluptatibus ea incidunt.
-        Fugiat voluptatum ratione voluptatem velit tenetur.`,
-    date: new Date(),
-    location: 'DevFest Catania',
-    title: 'Angular Zoneless Workshop',
-  },
-  {
-    id: 3,
-    about: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam porro suscipit cupiditate,
-        quam commodi omnis fuga quo perspiciatis ducimus illo repudiandae voluptatibus ea incidunt.
-        Fugiat voluptatum ratione voluptatem velit tenetur.`,
-    date: new Date(),
-    location: 'DevFest Catania',
-    title: 'Angular Zoneless Workshop',
-  },
-  {
-    id: 4,
-    about: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam porro suscipit cupiditate,
-        quam commodi omnis fuga quo perspiciatis ducimus illo repudiandae voluptatibus ea incidunt.
-        Fugiat voluptatum ratione voluptatem velit tenetur.`,
-    date: new Date(),
-    location: 'DevFest Catania',
-    title: 'Angular Zoneless Workshop',
-  },
-  {
-    id: 5,
-    about: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam porro suscipit cupiditate,
-        quam commodi omnis fuga quo perspiciatis ducimus illo repudiandae voluptatibus ea incidunt.
-        Fugiat voluptatum ratione voluptatem velit tenetur.`,
-    date: new Date(),
-    location: 'DevFest Catania',
-    title: 'Angular Zoneless Workshop',
-  },
 ];

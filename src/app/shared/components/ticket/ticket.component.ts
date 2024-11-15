@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { Ticket } from '../../models/ticket';
 import { DatePipe } from '@angular/common';
 
@@ -23,9 +23,17 @@ import { DatePipe } from '@angular/common';
       <p about>{{value.about}}</p>
     </section>
 
-    <button>add to cart</button>
+    <ng-content>
+      <button (click)="add()">add to cart</button>
+    </ng-content>
   </div>`,
 })
 export class TicketComponent {
   ticket = input.required<Ticket>();
+
+  addTicket = output<Ticket>();
+
+  add(): void {
+    this.addTicket.emit(this.ticket());
+  }
 }

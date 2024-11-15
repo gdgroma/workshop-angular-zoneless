@@ -11,7 +11,7 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/shop/shop.component'),
   },
   {
-    path: 'items',
-    loadComponent: () => import('./pages/items/items.component'),
+    path: 'cart',
+    loadComponent: () => import('./pages/cart/cart.component'),
   },
 ];

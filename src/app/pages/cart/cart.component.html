@@ -1,0 +1,7 @@
+<section>
+    @for (ticket of cart$ | async; track ticket.id) {
+        <app-ticket [ticket]="ticket">
+            <button (click)="removeTicket(ticket)">Remove Ticket</button>
+        </app-ticket>
+    }
+</section>

@@ -1,6 +1,11 @@
 <section class="container">
   <header>
-    Header
+    <div (click)="goToCart()" class="header__icon">
+      <span class="material-symbols-outlined">
+        shopping_cart
+      </span>
+      {{ quantity$ | async }}
+    </div>
   </header>
 
   <div class="body">
