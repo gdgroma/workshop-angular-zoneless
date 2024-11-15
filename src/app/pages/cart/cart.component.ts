@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
+import { ChangeDetectionStrategy, Component, inject, signal } from "@angular/core";
 import { AsyncPipe, JsonPipe } from "@angular/common";
 
 import { TicketService } from "../../shared/providers/ticket.service";
@@ -18,12 +18,12 @@ import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 export default class CartComponent {
   #ticketService = inject(TicketService);
 
-  cart: Cart[] = [];
+  cart = signal<Cart[]>([]);
 
   constructor() {
     this.#ticketService.cart
       .pipe(takeUntilDestroyed())
-      .subscribe((cart) => (this.cart = cart));
+      .subscribe((cart) => (this.cart.set(cart)));
   }
 
   removeTicket({ id }: Ticket): void {

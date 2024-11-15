@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  signal,
+} from "@angular/core";
 import { Router, RouterOutlet } from "@angular/router";
 import { TicketService } from "./shared/providers/ticket.service";
 import { AsyncPipe, CurrencyPipe } from "@angular/common";
@@ -17,17 +22,17 @@ export class AppComponent {
 
   #ticketService = inject(TicketService);
 
-  quantity = 0;
-  price = 0;
+  quantity = signal(0);
+  price = signal(0);
 
   constructor() {
     this.#ticketService.quantity
       .pipe(takeUntilDestroyed())
-      .subscribe((quantity) => (this.quantity = quantity));
+      .subscribe((quantity) => this.quantity.set(quantity));
 
     this.#ticketService.price
       .pipe(takeUntilDestroyed())
-      .subscribe((price) => (this.price = price));
+      .subscribe((price) => this.price.set(price));
   }
 
   goToCart(): void {
