@@ -7,7 +7,6 @@ import {
 import { Router, RouterOutlet } from "@angular/router";
 import { TicketService } from "./shared/providers/ticket.service";
 import { AsyncPipe, CurrencyPipe } from "@angular/common";
-import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 
 @Component({
   selector: "app-root",
@@ -22,18 +21,8 @@ export class AppComponent {
 
   #ticketService = inject(TicketService);
 
-  quantity = signal(0);
-  price = signal(0);
-
-  constructor() {
-    this.#ticketService.quantity
-      .pipe(takeUntilDestroyed())
-      .subscribe((quantity) => this.quantity.set(quantity));
-
-    this.#ticketService.price
-      .pipe(takeUntilDestroyed())
-      .subscribe((price) => this.price.set(price));
-  }
+  quantity = this.#ticketService.quantity;
+  price = this.#ticketService.price;
 
   goToCart(): void {
     this.router.navigate(["/cart"]);
