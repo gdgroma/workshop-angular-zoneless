@@ -1,4 +1,4 @@
-import { Component, inject } from "@angular/core";
+import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
 import { Router, RouterOutlet } from "@angular/router";
 import { TicketService } from "./shared/providers/ticket.service";
 import { AsyncPipe, CurrencyPipe } from "@angular/common";
@@ -10,6 +10,7 @@ import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
   standalone: true,
   templateUrl: "./app.component.html",
   styleUrl: "./app.component.scss",
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
   router = inject(Router);

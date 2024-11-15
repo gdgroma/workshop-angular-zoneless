@@ -1,4 +1,4 @@
-import { Component, inject } from "@angular/core";
+import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
 import { AsyncPipe, JsonPipe } from "@angular/common";
 
 import { TicketService } from "../../shared/providers/ticket.service";
@@ -13,6 +13,7 @@ import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
   selector: "app-shop",
   templateUrl: "./cart.component.html",
   styleUrls: ["./cart.component.scss"],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class CartComponent {
   #ticketService = inject(TicketService);
