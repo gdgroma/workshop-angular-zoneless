@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "defer-example": {
+    "workshop-angular-zoneless": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/defer-example",
+            "outputPath": "dist/workshop-angular-zoneless",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -64,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "defer-example:build:production"
+              "buildTarget": "workshop-angular-zoneless:build:production"
             },
             "development": {
-              "buildTarget": "defer-example:build:development"
+              "buildTarget": "workshop-angular-zoneless:build:development"
             }
           },
           "defaultConfiguration": "development"
