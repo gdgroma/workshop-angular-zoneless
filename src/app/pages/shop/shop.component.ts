@@ -3,7 +3,6 @@ import {
   ChangeDetectorRef,
   Component,
   inject,
-  OnInit,
 } from "@angular/core";
 
 import { TicketComponent } from "../../shared/components/ticket/ticket.component";
@@ -20,31 +19,16 @@ import { AsyncPipe, JsonPipe } from "@angular/common";
   imports: [TicketComponent, SearchBarComponent, JsonPipe, AsyncPipe],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class ShopComponent implements OnInit {
+export default class ShopComponent {
   cdr = inject(ChangeDetectorRef);
 
   #ticketService = inject(TicketService);
 
-  tickets: Ticket[] = [];
-
-  ngOnInit(): void {
-    this.getTickets();
-  }
-
-  getTickets(): void {
-    this.#ticketService.getTickets().subscribe((tickets) => {
-      this.tickets = tickets;
-      this.cdr.markForCheck();
-    });
-  }
+  tickets$ = this.#ticketService.getTickets();
 
   searchTicket(query: string): void {
-    if (query.length === 0) this.getTickets();
-    else
-      this.#ticketService.getTicketByQuery(query).subscribe((tickets) => {
-        this.tickets = tickets;
-        this.cdr.markForCheck();
-      });
+    if (query.length === 0) this.tickets$ = this.#ticketService.getTickets();
+    else this.tickets$ = this.#ticketService.getTicketByQuery(query);
   }
 
   addTicket(ticket: Ticket): void {
