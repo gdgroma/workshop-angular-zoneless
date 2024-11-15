@@ -1,11 +1,10 @@
 .tickets__container {
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
 
     gap: 16px;
-
-    flex-wrap: wrap;
 
     width: inherit;
 }

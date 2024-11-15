@@ -1,11 +1,23 @@
 section {
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
 
     gap: 16px;
 
-    flex-wrap: wrap;
-
     width: inherit;
+
+    & .remove {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+
+        gap: 16px;
+
+        & p {
+            font-size: 24px;
+        }
+    }
 }

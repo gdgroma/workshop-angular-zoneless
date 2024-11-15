@@ -1,5 +1,11 @@
 <section class="container">
   <header>
+    <div (click)="goToShop()" class="header__icon">
+      <span class="material-symbols-outlined">
+        shopping_bag
+      </span>
+    </div>
+    
     <div (click)="goToCart()" class="header__icon">
       <span class="material-symbols-outlined">
         shopping_cart
@@ -12,5 +18,5 @@
     <router-outlet />
   </div>
 
-  <footer>Footer</footer>
+  <footer></footer>
 </section>

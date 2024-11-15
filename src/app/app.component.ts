@@ -15,7 +15,10 @@ export class AppComponent {
   quantity$ = inject(TicketService).quantity;
 
   goToCart(): void {
-    console.log('Here?');
     this.router.navigate(['/cart']);
+  }
+
+  goToShop(): void {
+    this.router.navigate(['/shop']);
   }
 }

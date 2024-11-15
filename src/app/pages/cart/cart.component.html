@@ -1,7 +1,12 @@
 <section>
-    @for (ticket of cart$ | async; track ticket.id) {
-        <app-ticket [ticket]="ticket">
-            <button (click)="removeTicket(ticket)">Remove Ticket</button>
-        </app-ticket>
+    @for (item of cart$ | async; track $index) {
+        @if(item.ticket) {
+            <app-ticket [ticket]="item.ticket">
+                <div class="remove">
+                    <button (click)="removeTicket(item.ticket)">Remove Ticket</button>
+                    <p>{{ item.quantity }}</p>
+                </div>
+            </app-ticket>
+        }
     }
 </section>
