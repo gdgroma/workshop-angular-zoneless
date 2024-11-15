@@ -16,6 +16,17 @@ export default class ShopComponent implements OnInit {
   tickets: Ticket[] = [];
 
   ngOnInit(): void {
+    this.getTickets();
+  }
+
+  getTickets(): void {
     this.#ticketService.getTickets().subscribe((ticktes) => (this.tickets = ticktes));
+  }
+
+  searchTicket(event: Event): void {
+    const query = (event.target as HTMLInputElement).value;
+
+    if (query.length === 0) this.getTickets
+    else this.#ticketService.getTicketByQuery(query).subscribe((ticktes) => (this.tickets = ticktes));
   }
 }

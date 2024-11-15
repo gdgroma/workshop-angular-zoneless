@@ -11,7 +11,7 @@ export const TICKETS: Ticket[] = [
     title: 'Angular Zoneless Workshop',
   },
   {
-    id: 0,
+    id: 1,
     about: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam porro suscipit cupiditate,
         quam commodi omnis fuga quo perspiciatis ducimus illo repudiandae voluptatibus ea incidunt.
         Fugiat voluptatum ratione voluptatem velit tenetur.`,
@@ -20,7 +20,7 @@ export const TICKETS: Ticket[] = [
     title: 'Angular Zoneless Workshop',
   },
   {
-    id: 0,
+    id: 2,
     about: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam porro suscipit cupiditate,
         quam commodi omnis fuga quo perspiciatis ducimus illo repudiandae voluptatibus ea incidunt.
         Fugiat voluptatum ratione voluptatem velit tenetur.`,
@@ -29,7 +29,7 @@ export const TICKETS: Ticket[] = [
     title: 'Angular Zoneless Workshop',
   },
   {
-    id: 0,
+    id: 3,
     about: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam porro suscipit cupiditate,
         quam commodi omnis fuga quo perspiciatis ducimus illo repudiandae voluptatibus ea incidunt.
         Fugiat voluptatum ratione voluptatem velit tenetur.`,
@@ -38,7 +38,7 @@ export const TICKETS: Ticket[] = [
     title: 'Angular Zoneless Workshop',
   },
   {
-    id: 0,
+    id: 4,
     about: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam porro suscipit cupiditate,
         quam commodi omnis fuga quo perspiciatis ducimus illo repudiandae voluptatibus ea incidunt.
         Fugiat voluptatum ratione voluptatem velit tenetur.`,
@@ -47,7 +47,7 @@ export const TICKETS: Ticket[] = [
     title: 'Angular Zoneless Workshop',
   },
   {
-    id: 0,
+    id: 5,
     about: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam porro suscipit cupiditate,
         quam commodi omnis fuga quo perspiciatis ducimus illo repudiandae voluptatibus ea incidunt.
         Fugiat voluptatum ratione voluptatem velit tenetur.`,

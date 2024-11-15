@@ -1,4 +1,4 @@
-section {
+.tickets__container {
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -6,4 +6,6 @@ section {
     gap: 16px;
 
     flex-wrap: wrap;
+
+    width: inherit;
 }

@@ -1,5 +1,9 @@
 <section>
-  @for (ticket of tickets; track ticket.id) {
+  <input type="text" placeholder="Search your ticket..." (input)="searchTicket($event)" />
+
+  <div class="tickets__container">
+    @for (ticket of tickets; track ticket.id) {
     <app-ticket [ticket]="ticket" />
-  }
+    }
+  </div>
 </section>
