@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit, signal } from '@angular/core';
 
 import { TicketComponent } from '../../shared/components/ticket/ticket.component';
 import { TicketService } from '../../shared/providers/ticket.service';
@@ -15,9 +15,9 @@ import { AsyncPipe, JsonPipe } from '@angular/common';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class ShopComponent implements OnInit {
-  tickets: Ticket[] = [];
-
   #ticketService = inject(TicketService);
+  
+  tickets = signal<Ticket[]>([]);
 
   ngOnInit(): void {
     this.getTickets();
@@ -26,7 +26,7 @@ export default class ShopComponent implements OnInit {
   getTickets(): void {
     this.#ticketService
       .getTickets()
-      .subscribe((tickets) => (this.tickets = tickets));
+      .subscribe((tickets) => (this.tickets.set(tickets)));
   }
 
   searchTicket(query: string): void {
@@ -34,7 +34,7 @@ export default class ShopComponent implements OnInit {
     else
       this.#ticketService
         .getTicketByQuery(query)
-        .subscribe((tickets) => (this.tickets = tickets));
+        .subscribe((tickets) => (this.tickets.set(tickets)));
   }
 
   addTicket(ticket: Ticket): void {
