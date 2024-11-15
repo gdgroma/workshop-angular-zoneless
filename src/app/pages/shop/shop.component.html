@@ -1,5 +1,6 @@
 <section>
-  <input type="text" placeholder="Search your ticket..." (input)="searchTicket($event)" />
+
+  <app-search (inputChange)="searchTicket($event)"/>
 
   <div class="tickets__container">
     @for (ticket of tickets; track ticket.id) {
