@@ -4,4 +4,5 @@ export type Ticket = {
   id: number;
   location: string;
   title: string;
+  price: number;
 };

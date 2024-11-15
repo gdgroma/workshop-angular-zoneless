@@ -1,16 +1,19 @@
 <section class="container">
   <header>
-    <div (click)="goToShop()" class="header__icon">
+    <div (click)="goToShop()">
       <span class="material-symbols-outlined">
         shopping_bag
       </span>
     </div>
-    
-    <div (click)="goToCart()" class="header__icon">
-      <span class="material-symbols-outlined">
-        shopping_cart
-      </span>
-      {{ quantity$ | async }}
+
+    <div (click)="goToCart()">
+      <div class="cart">
+        {{ price$ | async | currency }}
+        <span class="material-symbols-outlined">
+          shopping_cart
+        </span>
+        {{ quantity$ | async }}
+      </div>
     </div>
   </header>
 

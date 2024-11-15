@@ -1,18 +1,21 @@
 import { Component, inject } from '@angular/core';
 import { Router, RouterOutlet} from '@angular/router';
 import { TicketService } from './shared/providers/ticket.service';
-import { AsyncPipe } from '@angular/common';
+import { AsyncPipe, CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, AsyncPipe],
+  imports: [RouterOutlet, AsyncPipe, CurrencyPipe],
   standalone: true,
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
   router = inject(Router);
-  quantity$ = inject(TicketService).quantity;
+
+  #ticketService = inject(TicketService);
+  quantity$ = this.#ticketService.quantity;
+  price$ = this.#ticketService.price;
 
   goToCart(): void {
     this.router.navigate(['/cart']);

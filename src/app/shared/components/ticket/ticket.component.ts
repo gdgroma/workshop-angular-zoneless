@@ -1,10 +1,10 @@
 import { Component, input, output } from '@angular/core';
 import { Ticket } from '../../models/ticket';
-import { DatePipe } from '@angular/common';
+import { CurrencyPipe, DatePipe } from '@angular/common';
 
 @Component({
   standalone: true,
-  imports: [DatePipe],
+  imports: [DatePipe, CurrencyPipe],
   selector: 'app-ticket',
   styleUrls: ['./ticket.component.scss'],
   template: `<div class="ticket">
@@ -14,7 +14,11 @@ import { DatePipe } from '@angular/common';
 
     <section class="ticket__header">
       <p>{{ value.location }}</p>
-      <p title>{{ value.title }}</p>
+      @if(value.price > 0) {
+        <p title>{{ value.title }} - {{ value.price | currency }}</p>
+      } @else {
+        <p title>{{ value.title }} - free</p>
+      }
       <p date>{{ value.date | date }}</p>
     </section>
 

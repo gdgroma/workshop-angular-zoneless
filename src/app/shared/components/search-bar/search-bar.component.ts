@@ -4,7 +4,14 @@ import { Component, output } from '@angular/core';
     standalone: true,
     selector: 'app-search',
     styleUrls: ['./search-bar.component.scss'],
-    templateUrl: './search-bar.component.html',
+    template: `
+    <div class="search">
+        <input type="text" placeholder="Search your ticket..." (input)="onInput($event)" />
+        <span class="material-symbols-outlined">
+            search
+        </span>
+    </div>
+`,
 })
 export class SearchBarComponent {
     inputChange = output<string>()
