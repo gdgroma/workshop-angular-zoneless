@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, delay, filter, map, Observable, of, switchMap, toArray } from 'rxjs';
+
 import { Ticket } from '../models/ticket';
 import { TICKETS } from '../const/response/tickets';
 
@@ -37,7 +38,6 @@ export class TicketService {
     const cart = this.#cart.getValue();
     const item = cart.find(item => item.ticket.id === ticket.id);
 
-
     if (item) item.quantity++;
     else {
       cart.push({
@@ -53,10 +53,9 @@ export class TicketService {
     let cart = this.#cart.getValue();
     const itemId = cart.findIndex(item => item.ticket.id === tickeId);
 
-    console.log(cart);
-
     if (itemId > -1) {
       if (cart[itemId].quantity > 0) cart[itemId].quantity--;
+      if (cart[itemId].quantity === 0) cart.splice(itemId, 1);
     }
 
     this.#cart.next(cart);

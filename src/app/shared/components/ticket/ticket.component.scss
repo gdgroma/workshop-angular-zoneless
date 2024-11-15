@@ -1,7 +1,7 @@
 .ticket {
   position: relative;
 
-  width: 600px;
+  max-width: 600px;
   height: auto;
 
   padding: 16px;
@@ -55,7 +55,7 @@
     left: 16px;
     right: 16px;
 
-    width: 568px;
+    max-width: 568px;
     height: 16px;
 
     background-color: var(--red-500);
