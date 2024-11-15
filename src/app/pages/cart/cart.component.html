@@ -1,5 +1,5 @@
 <section>
-    @for (item of cart; track $index) {
+    @for (item of cart$ | async; track $index) {
         @if(item.ticket) {
             <app-ticket [ticket]="item.ticket">
                 <div class="remove">

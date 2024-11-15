@@ -23,22 +23,8 @@ export class AppComponent {
 
   #ticketService = inject(TicketService);
 
-  quantity = 0;
-  price = 0;
-
-  constructor() {
-    this.#ticketService.quantity
-      .pipe(takeUntilDestroyed())
-      .subscribe((quantity) => {
-        this.quantity = quantity;
-        this.cdr.markForCheck();
-      });
-
-    this.#ticketService.price.pipe(takeUntilDestroyed()).subscribe((price) => {
-      this.price = price;
-      this.cdr.markForCheck();
-    });
-  }
+  quantity$ = this.#ticketService.quantity;
+  price$ = this.#ticketService.price;
 
   goToCart(): void {
     this.router.navigate(["/cart"]);

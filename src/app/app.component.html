@@ -5,11 +5,11 @@
     </div>
 
     <div class="cart" (click)="goToCart()">
-      {{ price | currency }}
+      {{ price$ | async | currency }}
 
       <span class="material-symbols-outlined"> shopping_cart </span>
 
-      {{ quantity }}
+      {{ quantity$ | async }}
     </div>
   </header>
 

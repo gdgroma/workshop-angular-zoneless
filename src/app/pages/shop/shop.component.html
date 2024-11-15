@@ -1,10 +1,9 @@
 <section>
-
-  <app-search (inputChange)="searchTicket($event)"/>
+  <app-search (inputChange)="searchTicket($event)" />
 
   <div class="tickets__container">
-    @for (ticket of tickets; track ticket.id) {
-      <app-ticket [ticket]="ticket" (addTicket)="addTicket($event)"/>
-    } 
+    @for (ticket of tickets$ | async; track ticket.id) {
+      <app-ticket [ticket]="ticket" (addTicket)="addTicket($event)" />
+    }
   </div>
 </section>
