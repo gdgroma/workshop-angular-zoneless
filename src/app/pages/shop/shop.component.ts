@@ -16,25 +16,15 @@ import { AsyncPipe, JsonPipe } from '@angular/common';
 })
 export default class ShopComponent implements OnInit {
   #ticketService = inject(TicketService);
-  
-  tickets = signal<Ticket[]>([]);
+
+  tickets = this.#ticketService.tickets;
 
   ngOnInit(): void {
-    this.getTickets();
-  }
-
-  getTickets(): void {
-    this.#ticketService
-      .getTickets()
-      .subscribe((tickets) => (this.tickets.set(tickets)));
+    this.#ticketService.getTickets();
   }
 
   searchTicket(query: string): void {
-    if (query.length === 0) this.getTickets();
-    else
-      this.#ticketService
-        .getTicketByQuery(query)
-        .subscribe((tickets) => (this.tickets.set(tickets)));
+    this.#ticketService.getTicketByQuery(query)
   }
 
   addTicket(ticket: Ticket): void {

@@ -11,29 +11,28 @@ import { TICKETS } from "../const/response/tickets";
 })
 export class TicketService {
   #cart = signal<Cart[]>([]);
+  #tickets = signal<Ticket[]>([]);
+
+  quantity = computed(() => this.#cart().reduce((a, b) => a + b.quantity, 0));
+  price = computed(() =>
+    this.#cart().reduce((a, b) => a + b.ticket.price * b.quantity, 0)
+  );
 
   get cart(): Signal<Cart[]> {
     return this.#cart.asReadonly();
   }
 
-  quantity = computed(() => this.#cart().reduce((a, b) => a + b.quantity, 0));
-
-  price = computed(() =>
-    this.#cart().reduce((a, b) => a + b.ticket.price * b.quantity, 0)
-  );
-
-  getTickets(): Observable<Ticket[]> {
-    return of(TICKETS).pipe(delay(500));
+  get tickets(): Signal<Ticket[]> {
+    return this.#tickets.asReadonly();
   }
 
-  getTicketByQuery(query: string): Observable<Ticket[]> {
-    return this.getTickets().pipe(
-      switchMap((tickets) => tickets),
-      filter((ticket) =>
-        ticket.title.toLowerCase().includes(query.toLowerCase())
-      ),
-      toArray()
-    );
+  getTickets(): void {
+    of(TICKETS).pipe(delay(500)).subscribe((tickets) => (this.#tickets.set(tickets)));
+  }
+
+  getTicketByQuery(query: string): void {
+    if (query.length === 0) this.getTickets();
+    if (query.length > 0) this.#tickets.update((tickets) => tickets.filter((ticket) => ticket.title.toLowerCase().includes(query.toLowerCase())))
   }
 
   addTicket(ticket: Ticket): void {
@@ -47,6 +46,7 @@ export class TicketService {
           quantity: 1,
         });
       }
+
       return [...cart];
     });
   }
