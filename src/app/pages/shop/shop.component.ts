@@ -23,12 +23,12 @@ export default class ShopComponent implements OnInit {
   }
 
   getTickets(): void {
-    this.#ticketService.getTickets().subscribe((ticktes) => (this.tickets = ticktes));
+    this.#ticketService.getTickets().subscribe((tickets) => (this.tickets = tickets));
   }
 
   searchTicket(query: string): void {
     if (query.length === 0) this.getTickets();
-    else this.#ticketService.getTicketByQuery(query).subscribe((ticktes) => (this.tickets = ticktes));
+    else this.#ticketService.getTicketByQuery(query).subscribe((tickets) => (this.tickets = tickets));
   }
 
   addTicket(ticket: Ticket): void {
